@@ -24,7 +24,11 @@ const Tab = () => {
             backgroundColor: '#497bd0',
           },
           headerTintColor: '#fff',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='home-circle' size={35}/>,
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='home-circle' color={color} size={size + 10}/>,
+          tabBarStyle: {
+            height: 75,
+            paddingBottom: 15,
+          },
         }}
       />
 
@@ -39,7 +43,11 @@ const Tab = () => {
             backgroundColor: '#497bd0',
           },
           headerTintColor: '#fff',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='chart-donut' size={35}/>,
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='chart-donut' color={color} size={size + 10}/>,
+          tabBarStyle: {
+            height: 75,
+            paddingBottom: 15,
+          },
         }}
       />
 
@@ -54,7 +62,11 @@ const Tab = () => {
             backgroundColor: '#497bd0',
           },
           headerTintColor: '#fff',
-          tabBarIcon: ({ color, size }) => <FontAwesome name='money' size={35}/>,
+          tabBarIcon: ({ color, size }) => <FontAwesome name='money' color={color} size={size + 10}/>,
+          tabBarStyle: {
+            height: 75,
+            paddingBottom: 15,
+          },
         }}
       />
 
@@ -69,7 +81,11 @@ const Tab = () => {
             backgroundColor: '#497bd0',
           },
           headerTintColor: '#fff',
-          tabBarIcon: ({ color, size }) => <FontAwesome name='list' size={35}/>,
+          tabBarIcon: ({ color, size }) => <FontAwesome name='list' color={color} size={size + 10}/>,
+          tabBarStyle: {
+            height: 75,
+            paddingBottom: 15,
+          },
         }}
       />
     </BottomTabNavigator.Navigator>
