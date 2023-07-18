@@ -7,7 +7,17 @@ const BottomTabNavigator = createBottomTabNavigator();
 const Tab = () => {
   return (
     <BottomTabNavigator.Navigator initialRouteName="Home">
-      <BottomTabNavigator.Screen name="Home" component={HomeScreen} />
+      <BottomTabNavigator.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#497bd0',
+          },
+          headerTintColor: '#fff' 
+        }} />
     </BottomTabNavigator.Navigator>
   );
 }
