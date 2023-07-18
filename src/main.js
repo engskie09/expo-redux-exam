@@ -1,7 +1,8 @@
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
-import { ApplicationProvider } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { mapping, light, dark } from "@eva-design/eva";
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 const theme = {
   light: {
@@ -20,11 +21,14 @@ import Tab from './component/navigation/tab';
 
 const Main = () => {
   return (
-    <ApplicationProvider mapping={mapping} theme={theme}>
-      <NavigationContainer>
-        <Tab/>
-      </NavigationContainer>
-    </ApplicationProvider>
+    <>
+      <IconRegistry icons={[EvaIconsPack]}/>
+      <ApplicationProvider mapping={mapping} theme={theme}>
+        <NavigationContainer>
+          <Tab/>
+        </NavigationContainer>
+      </ApplicationProvider>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import { StyleSheet, Image } from 'react-native';
-import { Button, Icon, IconElement, List as UIKittenList, ListItem } from '@ui-kitten/components';
+import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
 
 
 const data = [
@@ -30,11 +30,19 @@ const List = () => {
     <Button size='tiny'>FOLLOW</Button>
   );
 
+  const renderItemIcon = (props) => (
+    <Icon
+      {...props}
+      name='person'
+    />
+  );
+
   const renderItem = ({ item, index }) => (
     <ListItem
       title={`${item.title} ${index + 1}`}
       description={`${item.description} ${index + 1}`}
-      accessoryLeft={<Image style={{ width: 120, height: '100%'}} source={{uri: item.uri}} />}
+      accessoryLeft={renderItemIcon}
+      // accessoryLeft={<Image style={{ width: '100%', height: '100%', resizeMode: 'stretch'}} source={{uri: item.uri}} />}
       accessoryRight={renderItemAccessory}
     />
   );
@@ -44,6 +52,7 @@ const List = () => {
       style={styles.container}
       data={data}
       renderItem={renderItem}
+      ItemSeparatorComponent={Divider}
     />
   );
 };
