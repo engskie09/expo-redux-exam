@@ -1,29 +1,40 @@
-import React from 'react';
+import { StyleSheet, Image } from 'react-native';
 import { Button, Icon, IconElement, List as UIKittenList, ListItem } from '@ui-kitten/components';
-import { StyleSheet } from 'react-native';
 
-const data = new Array(8).fill({
-  title: 'Title for Item',
-  description: 'Description for Item',
-});
+
+const data = [
+  {
+    title: 'WEALTHFRONT',
+    description: 'Personal Savings',
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  },
+  {
+    title: 'BANK OF AMERICA',
+    description: 'BofA Checkings',
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  },
+  {
+    title: 'ROBINHOOD',
+    description: 'Robinhood Cash',
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  },
+  {
+    title: 'COINBASE PRO',
+    description: 'Coinbase USD',
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  }
+]
 
 const List = () => {
   const renderItemAccessory = () => (
     <Button size='tiny'>FOLLOW</Button>
   );
 
-  // const renderItemIcon = (props) => (
-  //   <Icon
-  //     {...props}
-  //     name='person'
-  //   />
-  // );
-
   const renderItem = ({ item, index }) => (
     <ListItem
       title={`${item.title} ${index + 1}`}
       description={`${item.description} ${index + 1}`}
-      // accessoryLeft={renderItemIcon}
+      accessoryLeft={<Image style={{ width: 120, height: '100%'}} source={{uri: item.uri}} />}
       accessoryRight={renderItemAccessory}
     />
   );
@@ -38,9 +49,7 @@ const List = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    maxHeight: 192,
-  },
+  container: {},
 });
 
 export default List;
