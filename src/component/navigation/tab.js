@@ -9,11 +9,12 @@ const BottomTabNavigator = createBottomTabNavigator();
 
 const Tab = () => {
   return (
-    <BottomTabNavigator.Navigator initialRouteName="HOME">
+    <BottomTabNavigator.Navigator initialRouteName='HOME'>
       <BottomTabNavigator.Screen
-        name="HOME"
+        name='HOME'
         component={HomeScreen}
         options={{
+          title: 'Home',
           headerShown: true,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -24,9 +25,10 @@ const Tab = () => {
       />
 
       <BottomTabNavigator.Screen
-        name="EXPENSES"
+        name='EXPENSES'
         component={ExpensesScreen}
         options={{
+          title: 'Expenses',
           headerShown: true,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -37,9 +39,10 @@ const Tab = () => {
       />
 
       <BottomTabNavigator.Screen
-        name="PORTFOLIO"
+        name='PORTFOLIO'
         component={PortfolioScreen}
         options={{
+          title: 'Portfolio',
           headerShown: true,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -50,9 +53,10 @@ const Tab = () => {
       />
 
       <BottomTabNavigator.Screen
-        name="BANK_ACCOUNTS"
+        name='BANK_ACCOUNTS'
         component={BankAccounts}
         options={{
+          title: 'Bank Accounts',
           headerShown: true,
           headerTitleAlign: 'center',
           headerStyle: {
