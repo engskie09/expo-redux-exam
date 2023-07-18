@@ -4,11 +4,11 @@
     "slug": "expo-redux-exam",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/asset/icon.png",
     "userInterfaceStyle": "light",
     "entryPoint": "./src/main.js",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./src/asset/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "foregroundImage": "./src/asset/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./src/assets/favicon.png"
+      "favicon": "./src/asset/favicon.png"
     }
   }
 }
