@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView} from 'react-native';
 
 import Chart from '../shared/home/chart';
 import List from '../shared/home/list';
@@ -21,9 +21,9 @@ const Home = () => {
       <View style={styles.chartContainer}>
         <Chart />
       </View>
-      <View style={styles. listContainer}>
+      <ScrollView style={styles.listContainer}>
         <List />
-      </View>
+      </ScrollView>
     </View>
   );
 }

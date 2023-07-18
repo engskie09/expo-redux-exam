@@ -1,5 +1,5 @@
-import { StyleSheet, Image } from 'react-native';
-import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider, Text } from '@ui-kitten/components';
+import { StyleSheet, Image, Text } from 'react-native';
+import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
 
 
 const data = [
@@ -26,10 +26,19 @@ const data = [
     description: 'Coinbase USD',
     cash: 15712,
     uri: 'https://picsum.photos/200?' + Math.random(),
-  }
+  },
 ]
 
 const List = () => {
+
+  const RenderItemTitle = ({ title }) => (
+    <Text style={styles.title}>{ title }</Text>
+  );
+
+  const RenderItemDescription = ({ description }) => (
+    <Text style={styles.description}>{ description }</Text>
+  );
+
 
   const RenderItemAccessory = ({ cash }) => (
     <Text style={styles.cash}>${ cash.toLocaleString("en-US") }</Text>
@@ -42,8 +51,8 @@ const List = () => {
 
   const renderItem = ({ item, index }) => (
     <ListItem
-      title={`${item.title} ${index + 1}`}
-      description={`${item.description} ${index + 1}`}
+      title={() => <RenderItemTitle title={item.title}/>}
+      description={() => <RenderItemDescription description={item.description}/>}
       accessoryLeft={() => <RenderItemIcon uri={item.uri}></RenderItemIcon>}
       accessoryRight={() => <RenderItemAccessory cash={item.cash}/>}
     />
@@ -54,15 +63,37 @@ const List = () => {
       style={styles.container}
       data={data}
       renderItem={renderItem}
-      ItemSeparatorComponent={Divider}
+      ItemSeparatorComponent={<Divider style={styles.divider}/>}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#ffffff'},
-  icon: { width: 50, height: 30, resizeMode: 'stretch'},
-  cash: { fontSize: 20 }
+  container: {
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    marginLeft: 15,
+    fontSize: 15,
+    fontWeight: '300',
+  },
+  description: {
+    marginLeft: 15,
+    fontSize: 23,
+  },
+  icon: {
+    width: 80,
+    height: 80,
+    resizeMode: 'stretch',
+    borderRadius: 60
+  },
+  cash: {
+    fontSize: 20,
+  },
+  divider: {
+    alignSelf : 'stretch',
+    backgroundColor : '#edf1f7'
+  }
 });
 
 export default List;
