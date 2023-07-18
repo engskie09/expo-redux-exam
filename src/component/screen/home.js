@@ -7,16 +7,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  text: {
-    fontSize: 14,
+  chartContainer: {
+    margin: 5,
+  },
+  listContainer: {
+    margin: 5,
   }
 });
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Chart />
-      <List />
+      <View style={styles.chartContainer}>
+        <Chart />
+      </View>
+      <View style={styles. listContainer}>
+        <List />
+      </View>
     </View>
   );
 }

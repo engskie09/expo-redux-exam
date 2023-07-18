@@ -15,7 +15,7 @@ const Chart = () => {
             },
           ],
         }}
-        width={Dimensions.get('window').width}
+        width={Dimensions.get('window').width - 10}
         height={220}
         chartConfig={{
           backgroundColor: '#ffffff',
