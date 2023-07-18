@@ -1,18 +1,29 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ScrollView} from 'react-native';
+
+import Chart from '../shared/expenses/chart';
+import List from '../shared/expenses/list';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  text: {
-    fontSize: 14,
+  chartContainer: {
+    margin: 5,
+  },
+  listContainer: {
+    margin: 5,
   }
 });
 
 const Expenses = () => {
-  return (  
+  return (
     <View style={styles.container}>
-      <Text style={styles.text}>Expenses</Text>
+      <View style={styles.chartContainer}>
+        <Chart />
+      </View>
+      <ScrollView style={styles.listContainer}>
+        <List />
+      </ScrollView>
     </View>
   );
 }
