@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import Chart from '../shared/home/chart';
+import List from '../shared/home/list';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,6 +16,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Chart />
+      <List />
     </View>
   );
 }
