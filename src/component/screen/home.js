@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
-import { StackedBarChart } from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
 
 const Home = () => {
   const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#08130D",
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
-    barPercentage: 0.5,
-    useShadowColorFromDataset: false // optional
+    backgroundColor: '#1cc910',
+    backgroundGradientFrom: '#eff3ff',
+    backgroundGradientTo: '#efefef',
+    decimalPlaces: 2,
+    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+    style: {
+      borderRadius: 16,
+    },
   };
 
   const data = {
@@ -36,15 +36,41 @@ const Home = () => {
 
   return (  
     <View style={styles.container}>
-      <StackedBarChart
-        data={data}
-        width={200}
+      <LineChart
+        data={{
+          labels: ['1D', '1W', '1M', '3M', '1Y', 'All'],
+          datasets: [
+            {
+              data: [20, 45, 28, 80, 99, 43],
+              strokeWidth: 2,
+            },
+          ],
+        }}
+        width={Dimensions.get('window').width}
         height={220}
-        chartConfig={chartConfig}
+        chartConfig={{
+          backgroundColor: '#ffffff',
+          backgroundGradientFrom: '#ffffff',
+          backgroundGradientTo: '#ffffff ',
+          decimalPlaces: 2,
+          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+        }}
         style={{
           marginVertical: 8,
           borderRadius: 16,
         }}
+        
+        withHorizontalLines={false}
+        withVerticalLines={false}
+        bezier
+        withDots={false}
+        // getDotColor={(dataPoint, dataPointIndex) => {
+        //   return 'transparent';
+        // }}
+        // hidePointsAtIndex={[20, 45, 28, 80, 99, 43].map((item, idx) => ((idx !== -1000) && idx) )}
       />
       <Text style={styles.text}>Home</Text>
     </View>
