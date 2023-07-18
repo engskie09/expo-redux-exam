@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 import HomeScreen from '../screen/home';
 import ExpensesScreen from '../screen/expenses';
 import PortfolioScreen from '../screen/portfolio';
@@ -20,7 +23,8 @@ const Tab = () => {
           headerStyle: {
             backgroundColor: '#497bd0',
           },
-          headerTintColor: '#fff' 
+          headerTintColor: '#fff',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='home-circle' size={35}/>,
         }}
       />
 
@@ -34,7 +38,8 @@ const Tab = () => {
           headerStyle: {
             backgroundColor: '#497bd0',
           },
-          headerTintColor: '#fff' 
+          headerTintColor: '#fff',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='chart-donut' size={35}/>,
         }}
       />
 
@@ -48,7 +53,8 @@ const Tab = () => {
           headerStyle: {
             backgroundColor: '#497bd0',
           },
-          headerTintColor: '#fff' 
+          headerTintColor: '#fff',
+          tabBarIcon: ({ color, size }) => <FontAwesome name='money' size={35}/>,
         }}
       />
 
@@ -62,7 +68,8 @@ const Tab = () => {
           headerStyle: {
             backgroundColor: '#497bd0',
           },
-          headerTintColor: '#fff' 
+          headerTintColor: '#fff',
+          tabBarIcon: ({ color, size }) => <FontAwesome name='list' size={35}/>,
         }}
       />
     </BottomTabNavigator.Navigator>
