@@ -1,23 +1,20 @@
 import { registerRootComponent } from 'expo';
+import { NavigationContainer } from '@react-navigation/native';
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import Tab from './component/navigation/tab';
+
 const Main = () => {
-  return (  
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! hi XD</Text>
+  return (
+    <View>
+      <NavigationContainer>
+        <Tab/>
+      </NavigationContainer>
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 registerRootComponent(Main);
