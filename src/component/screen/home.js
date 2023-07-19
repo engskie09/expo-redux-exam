@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Chart from '../shared/home/chart';
 import List from '../shared/home/list';

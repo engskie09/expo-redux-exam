@@ -7,9 +7,9 @@ const Stack = createStackNavigator();
 
 const ExpensesStack = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Expenses" component={Expenses} />
-      <Stack.Screen name="ExpensesAllCategories" component={ExpensesAllCategories} />
+    <Stack.Navigator initialRouteName='Expenses'>
+      <Stack.Screen name='Expenses' options={{ headerShown: false }} component={Expenses} />
+      <Stack.Screen name='ExpensesAllCategories' options={{ title: '' }} component={ExpensesAllCategories} />
     </Stack.Navigator>
   );
 }

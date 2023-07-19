@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import AllCategoriesList from '../shared/expenses/all-categories-list';
 

@@ -1,5 +1,5 @@
 import { StyleSheet, Image, Text } from 'react-native';
-import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
+import { List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
 
 
 const data = [

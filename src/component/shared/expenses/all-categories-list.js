@@ -1,5 +1,5 @@
 import { StyleSheet, Image, Text } from 'react-native';
-import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
+import { List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const data = [
@@ -36,9 +36,6 @@ const data = [
     spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
-  {
-    isAction: true,
-  },
 ]
 
 const AllCategoriesList = () => {
@@ -52,7 +49,7 @@ const AllCategoriesList = () => {
   );
 
 
-  const RenderItemAccessory = ({ cash }) => (
+  const RenderItemAccessory = () => (
     <FontAwesome name='angle-right' size={30} width={20} color={'#00000060'} />
   );
 
@@ -61,7 +58,7 @@ const AllCategoriesList = () => {
   );
 
 
-  const RenderItem = ({ item, index }) => (
+  const RenderItem = ({ item }) => (
     <ListItem
       title={() => <RenderItemTitle title={item.title}/>}
       description={() => <RenderItemSpent spent={item.spent}/>}
@@ -71,22 +68,15 @@ const AllCategoriesList = () => {
   );
 
   const RenderHeader = () => (
-    <ListItem description={() => <Text style={styles.header}>Top Spending Categories</Text>} />
+    <ListItem description={() => <Text style={styles.header}>All Spending Categories</Text>} />
    );
-
-  const RenderAction = () => (
-   <ListItem
-      description={() => <Text style={styles.categories}>View All Categories</Text>}
-      accessoryRight={() => <RenderItemAccessory />}
-    />
-  );
 
   return (
     <UIKittenList
       scrollEnabled
       style={styles.container}
       data={data}
-      renderItem={({item, index}) => !item.isAction && !item.isHeader? <RenderItem item={item} index={index} /> : !item.isAction ? <RenderHeader /> : <RenderAction />}
+      renderItem={({item, index}) => !item.isAction && !item.isHeader? <RenderItem item={item} index={index} /> : <RenderHeader />}
       ItemSeparatorComponent={<Divider style={styles.divider}/>}
     />
   );
@@ -119,10 +109,6 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: 'bold',
   },
-  categories: {
-    fontSize: 23,
-    color: '#00000060'
-  }
 });
 
 export default AllCategoriesList;

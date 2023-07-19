@@ -1,5 +1,5 @@
 import { StyleSheet, Image, Text } from 'react-native';
-import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
+import { List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const data = [
@@ -41,7 +41,7 @@ const data = [
   },
 ]
 
-const TopCategoriesList = () => {
+const TopCategoriesList = ({ navigation }) => {
 
   const RenderItemTitle = ({ title }) => (
     <Text style={styles.title}>{ title }</Text>
@@ -52,7 +52,7 @@ const TopCategoriesList = () => {
   );
 
 
-  const RenderItemAccessory = ({ cash }) => (
+  const RenderItemAccessory = () => (
     <FontAwesome name='angle-right' size={30} width={20} color={'#00000060'} />
   );
 
@@ -61,7 +61,7 @@ const TopCategoriesList = () => {
   );
 
 
-  const RenderItem = ({ item, index }) => (
+  const RenderItem = ({ item }) => (
     <ListItem
       title={() => <RenderItemTitle title={item.title}/>}
       description={() => <RenderItemSpent spent={item.spent}/>}
@@ -76,6 +76,7 @@ const TopCategoriesList = () => {
 
   const RenderAction = () => (
    <ListItem
+      onPress={() => { navigation.navigate('ExpensesAllCategories'); }}
       description={() => <Text style={styles.categories}>View All Categories</Text>}
       accessoryRight={() => <RenderItemAccessory />}
     />

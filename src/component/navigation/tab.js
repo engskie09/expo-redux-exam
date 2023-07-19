@@ -4,7 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 import HomeScreen from '../screen/home';
-import ExpensesScreen from '../screen/expenses';
+import ExpensesStack from './expenses-stack';
 import PortfolioScreen from '../screen/portfolio';
 import BankAccounts from '../screen/bank-accounts';
 
@@ -34,7 +34,7 @@ const Tab = () => {
 
       <BottomTabNavigator.Screen
         name='EXPENSES'
-        component={ExpensesScreen}
+        component={ExpensesStack}
         options={{
           title: 'Expenses',
           headerShown: true,
