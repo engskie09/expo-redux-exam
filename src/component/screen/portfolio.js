@@ -16,36 +16,45 @@ const styles = StyleSheet.create({
 const Portfolio = (props) => {
 
   useEffect(() => {
-    async function loadPhotos() {
-      await props.loadPhotos()
+    async function loadData() {
+      await props.loadData()
     }
-    loadPhotos();
-  }, [])
+    loadData();
+  }, []);
 
   useEffect(() => {
-    console.log('test', props.photos);
-  }, [props.photos])
+    console.log('photos', props.photos);
+  }, [props.photos]);
+
+  useEffect(() => {
+    console.log('videos', props.videos);
+  }, [props.videos]);
+
+  useEffect(() => {
+    console.log('details', props.details);
+  }, [props.details]);
+
+  useEffect(() => {
+    console.log('comments', props.comments);
+  }, [props.comments]);
 
   return (  
     <View style={styles.container}>
-      <Text style={styles.text}>Portfolio
-      {/* {JSON.stringify(props)} */}
-      
-       eyy</Text>
+      <Text style={styles.text}>Portfolio</Text>
     </View>
   );
 }
 
-// export default Portfolio;
-
-
 const mapStateToProps = state => ({
   photos: state.photos,
+  videos: state.videos,
+  details: state.details,
+  comments: state.comments,
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadPhotos: () => dispatch(fetchData()),
+    loadData: () => dispatch(fetchData()),
   }
 }
 

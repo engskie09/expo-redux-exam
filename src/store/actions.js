@@ -18,6 +18,27 @@ export const getPhotos = (photos) => {
   }
 }
 
+export const getVideos = (videos) => {
+  return {
+    type: 'GET_VIDEOS',
+    payload: videos,
+  }
+}
+
+export const getDetails = (details) => {
+  return {
+    type: 'GET_DETAILS',
+    payload: details,
+  }
+}
+
+export const getComments = (comments) => {
+  return {
+    type: 'GET_COMMENTS',
+    payload: comments,
+  }
+}
+
 export const fetchData = () => {
   return async (dispatch) => {  
     dispatch(isFetching());
@@ -25,6 +46,9 @@ export const fetchData = () => {
       const json = await response.json();
 
       dispatch(getPhotos(json.photos));
+      dispatch(getVideos(json.videos));
+      dispatch(getDetails(json.details));
+      dispatch(getComments(json.comments));
       dispatch(isFetched())
     })
   } 
