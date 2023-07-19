@@ -60,6 +60,7 @@ const List = () => {
 
   return (
     <UIKittenList
+      scrollEnabled
       style={styles.container}
       data={data}
       renderItem={renderItem}

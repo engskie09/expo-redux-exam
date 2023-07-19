@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   listContainer: {
+    flex: 1,
     margin: 5,
   }
 });
@@ -21,9 +22,9 @@ const Home = () => {
       <View style={styles.chartContainer}>
         <Chart />
       </View>
-      <ScrollView style={styles.listContainer}>
+      <View style={styles.listContainer}>
         <List />
-      </ScrollView>
+      </View>
     </View>
   );
 }

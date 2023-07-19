@@ -21,9 +21,9 @@ const Expenses = () => {
       <View style={styles.chartContainer}>
         <Chart />
       </View>
-      <ScrollView style={styles.listContainer}>
+      <View style={styles.listContainer}>
         <List />
-      </ScrollView>
+      </View>
     </View>
   );
 }
