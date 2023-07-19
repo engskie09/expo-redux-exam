@@ -4,31 +4,38 @@ import { PieChart } from "react-native-chart-kit";
 
 const data = [
   {
-    name: 'Seoul',
-    population: 21500000,
-    color: 'rgba(131, 167, 234, 1)',
-    legendFontColor: '#7F7F7F',
+    name: 'Rent',
+    expenseRate: 25,
+    color: '#ffb6c1',
+    legendFontColor: '#000000',
     legendFontSize: 15,
   },
   {
-    name: 'Toronto',
-    population: 2800000,
-    color: '#F00',
-    legendFontColor: '#7F7F7F',
+    name: 'Restaurants',
+    expenseRate: 10,
+    color: '#63e5ff',
+    legendFontColor: '#000000',
     legendFontSize: 15,
   },
   {
-    name: 'New York',
-    population: 8538000,
-    color: '#ffffff',
-    legendFontColor: '#7F7F7F',
+    name: 'Drinks',
+    expenseRate: 30,
+    color: '#99d18f',
+    legendFontColor: '#000000',
     legendFontSize: 15,
   },
   {
-    name: 'Moscow',
-    population: 11920000,
-    color: 'rgb(0, 0, 255)',
-    legendFontColor: '#7F7F7F',
+    name: 'Uber',
+    expenseRate: 19,
+    color: '#f3e260',
+    legendFontColor: '#000000',
+    legendFontSize: 15,
+  },
+  {
+    name: 'Groceries',
+    expenseRate: 18,
+    color: '#ffa500',
+    legendFontColor: '#000000',
     legendFontSize: 15,
   },
 ];
@@ -55,10 +62,10 @@ const Chart = () => {
           marginVertical: 8,
           borderRadius: 16,
         }}
-        accessor="population"
-        backgroundColor="transparent"
+        accessor="expenseRate"
         paddingLeft="15"
-        absolute //for the absolute number remove if you want percentage
+        // absolute //for the absolute number remove if you want percentage
+        // hasLegend
       />
     </View>
   );
