@@ -41,7 +41,7 @@ const data = [
   },
 ]
 
-const List = () => {
+const AllCategoriesList = () => {
 
   const RenderItemTitle = ({ title }) => (
     <Text style={styles.title}>{ title }</Text>
@@ -125,4 +125,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default List;
+export default AllCategoriesList;

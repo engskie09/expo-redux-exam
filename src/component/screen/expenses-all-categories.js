@@ -1,7 +1,6 @@
 import { StyleSheet, View, ScrollView} from 'react-native';
 
-import Chart from '../shared/expenses/chart';
-import TopCategoriesList from '../shared/expenses/top-categories-list';
+import AllCategoriesList from '../shared/expenses/all-categories-list';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,11 +18,8 @@ const styles = StyleSheet.create({
 const Expenses = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.chartContainer}>
-        <Chart />
-      </View>
       <View style={styles.listContainer}>
-        <TopCategoriesList />
+        <AllCategoriesList />
       </View>
     </View>
   );
