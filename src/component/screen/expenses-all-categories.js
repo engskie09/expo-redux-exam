@@ -1,7 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 
-import Chart from '../shared/home/chart';
-import List from '../shared/home/list';
+import AllCategoriesList from '../shared/expenses/all-categories-list';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,17 +15,14 @@ const styles = StyleSheet.create({
   }
 });
 
-const Home = () => {
+const Expenses = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.chartContainer}>
-        <Chart />
-      </View>
       <View style={styles.listContainer}>
-        <List />
+        <AllCategoriesList />
       </View>
     </View>
   );
 }
 
-export default Home;
+export default Expenses;

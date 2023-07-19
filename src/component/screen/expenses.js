@@ -1,18 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import Chart from '../shared/expenses/chart';
+import TopCategoriesList from '../shared/expenses/top-categories-list';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  text: {
-    fontSize: 14,
+  chartContainer: {
+    margin: 5,
+  },
+  listContainer: {
+    flex: 1,
+    margin: 5,
   }
 });
 
-const Expenses = () => {
-  return (  
+const Expenses = ({ navigation }) => {
+  return (
     <View style={styles.container}>
-      <Text style={styles.text}>Expenses</Text>
+      <View style={styles.chartContainer}>
+        <Chart />
+      </View>
+      <View style={styles.listContainer}>
+        <TopCategoriesList navigation={navigation} />
+      </View>
     </View>
   );
 }

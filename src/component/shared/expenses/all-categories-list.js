@@ -1,47 +1,56 @@
 import { StyleSheet, Image, Text } from 'react-native';
 import { List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
-
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const data = [
   {
-    title: 'WEALTHFRONT',
-    description: 'Personal Savings',
-    cash: 92875,
+    isHeader: true,
+  },
+  {
+    title: 'HOME & UTILITIES',
+    spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
   {
-    title: 'BANK OF AMERICA',
-    description: 'BofA Checkings',
-    cash: 12030,
+    title: 'TRAVEL',
+    spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
   {
-    title: 'ROBINHOOD',
-    description: 'Robinhood Cash',
-    cash: 7123,
+    title: 'RIDE SHARING',
+    spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
   {
-    title: 'COINBASE PRO',
-    description: 'Coinbase USD',
-    cash: 15712,
+    title: 'GROCERIES',
+    spent: 3296.98,
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  },
+  {
+    title: 'DRINKS',
+    spent: 3296.98,
+    uri: 'https://picsum.photos/200?' + Math.random(),
+  },
+  {
+    title: 'RENT',
+    spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
 ]
 
-const List = () => {
+const AllCategoriesList = () => {
 
   const RenderItemTitle = ({ title }) => (
     <Text style={styles.title}>{ title }</Text>
   );
 
-  const RenderItemDescription = ({ description }) => (
-    <Text style={styles.description}>{ description }</Text>
+  const RenderItemSpent = ({ spent }) => (
+    <Text style={styles.spent}>${ spent }</Text>
   );
 
 
-  const RenderItemAccessory = ({ cash }) => (
-    <Text style={styles.cash}>${ cash.toLocaleString("en-US") }</Text>
+  const RenderItemAccessory = () => (
+    <FontAwesome name='angle-right' size={30} width={20} color={'#00000060'} />
   );
 
   const RenderItemIcon = ({ uri }) => (
@@ -49,21 +58,25 @@ const List = () => {
   );
 
 
-  const renderItem = ({ item, index }) => (
+  const RenderItem = ({ item }) => (
     <ListItem
       title={() => <RenderItemTitle title={item.title}/>}
-      description={() => <RenderItemDescription description={item.description}/>}
+      description={() => <RenderItemSpent spent={item.spent}/>}
       accessoryLeft={() => <RenderItemIcon uri={item.uri}></RenderItemIcon>}
-      accessoryRight={() => <RenderItemAccessory cash={item.cash}/>}
+      accessoryRight={() => <RenderItemAccessory />}
     />
   );
+
+  const RenderHeader = () => (
+    <ListItem description={() => <Text style={styles.header}>All Spending Categories</Text>} />
+   );
 
   return (
     <UIKittenList
       scrollEnabled
       style={styles.container}
       data={data}
-      renderItem={renderItem}
+      renderItem={({item, index}) => !item.isAction && !item.isHeader? <RenderItem item={item} index={index} /> : <RenderHeader />}
       ItemSeparatorComponent={<Divider style={styles.divider}/>}
     />
   );
@@ -78,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '300',
   },
-  description: {
+  spent: {
     marginLeft: 15,
     fontSize: 23,
   },
@@ -88,13 +101,14 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     borderRadius: 60
   },
-  cash: {
-    fontSize: 20,
-  },
   divider: {
     alignSelf : 'stretch',
     backgroundColor : '#edf1f7'
-  }
+  },
+  header: {
+    fontSize: 23,
+    fontWeight: 'bold',
+  },
 });
 
-export default List;
+export default AllCategoriesList;

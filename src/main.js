@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
