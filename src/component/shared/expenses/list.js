@@ -1,8 +1,11 @@
 import { StyleSheet, Image, Text } from 'react-native';
 import { Button, Icon, IconElement, List as UIKittenList, ListItem, Divider } from '@ui-kitten/components';
-
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const data = [
+  {
+    isHeader: true,
+  },
   {
     title: 'HOME & UTILITIES',
     spent: 3296.98,
@@ -33,6 +36,9 @@ const data = [
     spent: 3296.98,
     uri: 'https://picsum.photos/200?' + Math.random(),
   },
+  {
+    isAction: true,
+  },
 ]
 
 const List = () => {
@@ -46,21 +52,32 @@ const List = () => {
   );
 
 
-  // const RenderItemAccessory = ({ cash }) => (
-  //   <Text style={styles.cash}>${ cash.toLocaleString("en-US") }</Text>
-  // );
+  const RenderItemAccessory = ({ cash }) => (
+    <FontAwesome name='angle-right' size={30} width={20} color={'#00000060'} />
+  );
 
   const RenderItemIcon = ({ uri }) => (
     <Image style={styles.icon} source={{ uri }} />
   );
 
 
-  const renderItem = ({ item, index }) => (
+  const RenderItem = ({ item, index }) => (
     <ListItem
       title={() => <RenderItemTitle title={item.title}/>}
       description={() => <RenderItemSpent spent={item.spent}/>}
       accessoryLeft={() => <RenderItemIcon uri={item.uri}></RenderItemIcon>}
-      // accessoryRight={() => <RenderItemAccessory cash={item.cash}/>}
+      accessoryRight={() => <RenderItemAccessory />}
+    />
+  );
+
+  const RenderHeader = () => (
+    <ListItem description={() => <Text style={styles.header}>Top Spending Categories</Text>} />
+   );
+
+  const RenderAction = () => (
+   <ListItem
+      description={() => <Text style={styles.categories}>View All Categories</Text>}
+      accessoryRight={() => <RenderItemAccessory />}
     />
   );
 
@@ -69,7 +86,7 @@ const List = () => {
       scrollEnabled
       style={styles.container}
       data={data}
-      renderItem={renderItem}
+      renderItem={({item, index}) => !item.isAction && !item.isHeader? <RenderItem item={item} index={index} /> : !item.isAction ? <RenderHeader /> : <RenderAction />}
       ItemSeparatorComponent={<Divider style={styles.divider}/>}
     />
   );
@@ -97,6 +114,14 @@ const styles = StyleSheet.create({
   divider: {
     alignSelf : 'stretch',
     backgroundColor : '#edf1f7'
+  },
+  header: {
+    fontSize: 23,
+    fontWeight: 'bold',
+  },
+  categories: {
+    fontSize: 23,
+    color: '#00000060'
   }
 });
 
